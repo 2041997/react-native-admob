@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import 'expo-dev-client';
-// import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds, BannerAdSize, AdEventType, RewardedAdEventType } from 'react-native-google-mobile-ads';
+import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds, BannerAdSize, AdEventType, RewardedAdEventType } from 'react-native-google-mobile-ads';
 // import React, { useEffect } from 'react';
 
 // const adUnitId =  'ca-app-pub-9152919921144751/7643014312';
@@ -63,15 +63,14 @@ export default function App() {
 
       {/* <Text> In the Name of Allah </Text>
       <StatusBar style="auto" /> */}
-
-      {/* <BannerAd 
+      <BannerAd 
       size={BannerAdSize.BANNER} 
       unitId={TestIds.BANNER} 
       // unitId={"ca-app-pub-9152919921144751/4080981743"} 
       // requestOptions={{
       //   requestNonPersonalizedAdsOnly:true,
       // }}
-      /> */}
+      />
 
     </View>
   );
