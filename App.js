@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import 'expo-dev-client';
-import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds, BannerAdSize, AdEventType, RewardedAdEventType } from 'react-native-google-mobile-ads';
+import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds, BannerAdSize, AdEventType, RewardedAdEventType, MobileAds } from 'react-native-google-mobile-ads';
+import { useEffect } from 'react';
 // import React, { useEffect } from 'react';
 
 // const adUnitId =  'ca-app-pub-9152919921144751/7643014312';
@@ -18,6 +19,18 @@ import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds, BannerAdSize,
 // });
 
 export default function App() {
+  console.log(TestIds.BANNER)
+  console.log(BannerAdSize.BANNER)
+
+  useEffect(() => {
+    MobileAds().initialize()
+      .then(adapterStatuses => {
+        console.log('MobileAds initialized', adapterStatuses);
+      })
+      .catch(error => {
+        console.error('MobileAds initialization failed', error);
+      });
+  }, []);
 
   // useEffect(() => {
   //   const unsubscribe = interstitial.addAdEventListener(AdEventType.LOADED, () => {
@@ -55,21 +68,20 @@ export default function App() {
   return (
     <View style={styles.container}>
       
-      <Text> In the name of Allah......!!!!!!! </Text>
-      <Text> In the name of Allah </Text>
-      <Text> In the name of Allah </Text>
-      <Text> In the name of Allah </Text>
-      <Text> In the name of Allah </Text>
-
-      {/* <Text> In the Name of Allah </Text>
-      <StatusBar style="auto" /> */}
+      <Text> This is The AdMob  Page </Text>
+      <StatusBar style="auto" />
       <BannerAd 
       size={BannerAdSize.BANNER} 
       unitId={TestIds.BANNER} 
-      // unitId={"ca-app-pub-9152919921144751/4080981743"} 
-      // requestOptions={{
-      //   requestNonPersonalizedAdsOnly:true,
-      // }}
+      onAdLoaded={() => {
+        console.log('Banner Ad Loaded');
+      }}
+      onAdFailedToLoad={(error) => {
+        console.log('Banner Ad Failed to Load', error);
+        if (error.code === 'internal-error') {
+          console.log('Internal error occurred. Possible reasons include invalid ad unit ID or server issues.');
+        }
+      }}
       />
 
     </View>

@@ -25,19 +25,18 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.akhzarna.bseadmob"
+      "package": "com.maurya2041997.bseadmob"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "f7d3cf2d-ad38-4946-a79b-37767e653a22"
+        "projectId": "cdf0dd7e-b1a4-4a84-9e57-22add7408007"
       }
     }
   },
-    "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-7284221130975332~7755297595"
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
   }
 }
-
